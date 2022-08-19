@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20220818 18:06:15.945" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20220819 11:27:12.948" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot Interactive Console" source="c:\Users\nacho\.vscode\extensions\robocorp.robotframework-lsp-1.0.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
 <test id="s1-t1" name="Default Task/Test" line="5">
 <kw name="Interpreter Main Loop" library="MainLoop">
-<kw name="Set Screenshot Directory" library="RPA.Browser.Selenium">
-<arg>C:\Users\nacho\Desktop\RPA\Second Robot\Robot Images</arg>
-<doc>Sets the directory for captured screenshots.</doc>
-<status status="PASS" starttime="20220818 18:07:03.884" endtime="20220818 18:07:03.885"/>
+<status status="PASS" starttime="20220819 11:27:12.990" endtime="20220819 11:27:30.890"/>
 </kw>
-<status status="PASS" starttime="20220818 18:06:15.990" endtime="20220818 18:07:47.264"/>
-</kw>
-<status status="PASS" starttime="20220818 18:06:15.990" endtime="20220818 18:07:47.264"/>
+<status status="PASS" starttime="20220819 11:27:12.990" endtime="20220819 11:27:30.891"/>
 </test>
-<status status="PASS" starttime="20220818 18:06:15.947" endtime="20220818 18:07:47.266"/>
+<status status="PASS" starttime="20220819 11:27:12.950" endtime="20220819 11:27:30.893"/>
 </suite>
 <statistics>
 <total>

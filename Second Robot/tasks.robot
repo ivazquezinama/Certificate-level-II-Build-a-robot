@@ -20,12 +20,22 @@ Order Robots from RobotSpareBin Industries Inc
     Get order file and make the orders
     Make ZIP file of the orders receipts
     Read the vault secret and log the findings
-    Confirmation dialog
+    Close the WebSite
 
 
 *** Keywords ***
 Download the orders file
-    Download    https://robotsparebinindustries.com/orders.csv    overwrite=True
+    #https://robotsparebinindustries.com/orders.csv
+    #I put the link there for easy access to copy and paste into the input text request
+
+    Add heading    Input the URL of the orders file
+    Add text input    message
+    ...    label=Enter URL here
+    ...    rows=1
+    ${url_order_file}=    Run dialog
+    RETURN    ${url_order_file}
+
+    Download    ${url_order_file}    overwrite=True
 
 Open the Order Robots WebSite
     Open Available Browser    https://robotsparebinindustries.com/#/robot-order
@@ -94,7 +104,7 @@ Merge receipt with image of the robot order
     [Arguments]    ${order_file}
     ${files}=    Create List
     ...    ${OUTPUT_DIR}${/}${order_file}[Order number].pdf
-    ...    ${OUTPUT_DIR}${/}${order_file}[Order number].png
+    ...    ${OUTPUT_DIR}${/}${order_file}[Order number].png:align=center
     Add Files To Pdf    ${files}    Receipt-Order-Nro.${order_file}[Order number].pdf
 
 Remove unnecessary files
@@ -122,8 +132,5 @@ Read the vault secret and log the findings
     Log    ${secret}[username]
     Log    ${secret}[password]
 
-Confirmation dialog
-    Add heading    Do you want to close de WebSite?
-    Add submit buttons    buttons=No,Yes    default=Yes
-    ${result}=    Run dialog
-    IF    $result.submit == "Yes"    Close Browser
+Close the WebSite
+    Close Browser
