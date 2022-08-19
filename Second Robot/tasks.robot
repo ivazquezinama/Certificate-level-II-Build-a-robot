@@ -64,7 +64,7 @@ Get order file and make the orders
 
         Save image of the robot ordered    ${order_file}
 
-        Merge receipt with image of the robot order    ${order_file}
+        Add image of the robot to the receipt    ${order_file}
 
         Remove unnecessary files    ${order_file}
 
@@ -100,12 +100,12 @@ Save image of the robot ordered
     Wait Until Page Contains Element    id:robot-preview-image
     Screenshot    robot-preview-image    ${OUTPUT_DIR}${/}${order_file}[Order number].png
 
-Merge receipt with image of the robot order
+Add image of the robot to the receipt
     [Arguments]    ${order_file}
-    ${files}=    Create List
-    ...    ${OUTPUT_DIR}${/}${order_file}[Order number].pdf
-    ...    ${OUTPUT_DIR}${/}${order_file}[Order number].png:align=center
-    Add Files To Pdf    ${files}    Receipt-Order-Nro.${order_file}[Order number].pdf
+    Add Watermark Image To PDF
+    ...    image_path=${OUTPUT_DIR}${/}${order_file}[Order number].png
+    ...    source_path=${OUTPUT_DIR}${/}${order_file}[Order number].pdf
+    ...    output_path=Receipt-Order-Nro.${order_file}[Order number].pdf
 
 Remove unnecessary files
     [Arguments]    ${order_file}
